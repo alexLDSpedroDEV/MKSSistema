@@ -143,7 +143,6 @@ export const ItensName = styled.div`
   line-height: 19px;
   text-align: left;
 `
-
 export const BoxItensPrice = styled.div`
   width: auto;
   min-width: 64px;
@@ -180,7 +179,6 @@ export const BoxItensBtn = styled.div`
   justify-content: space-around;
   align-items: center;
 `
-
 export const ItensBtnText = styled.h3`
   font-size: 14px;
   font-weight: 600;
@@ -192,7 +190,6 @@ export const ItensBtnText = styled.h3`
   align-items: center;
 
 `
-
 export const Footer = styled.div`
   width: 100vw;
   height: 38px;
@@ -208,4 +205,159 @@ export const Footer = styled.div`
   line-height: 14.63px;
   text-align: left;
 
+`
+
+
+
+export const ContainerCart = styled.div`
+  width: 486px;
+  height: 100vh;
+  min-height: 800px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: #0F52BA;
+  padding: 20px 20px;
+  box-shadow: -5px 0px 6px 0px #00000021;
+  display: grid;
+`
+
+export const BoxCartTitle = styled.h2`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  color: white;
+  margin-bottom: 50px;
+  
+`
+export const CartTitle = styled.h1`
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 32.91px;
+  text-align: left;
+
+`
+export const CartBtnClose = styled.div`
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  color: white;
+  background-color: black;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+`
+export const ContainerCartProducts = styled.div`
+
+  width: 100%;
+  height: 71vh;
+  min-height: 600px;
+  
+`
+
+export const BoxCartProducts = styled.div`
+
+  width: 100%;
+  margin: auto;
+  height: 95px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 60px 120px auto auto;
+  align-items: center;
+  padding-top: 15px;
+  justify-content: space-around;
+  background-color: white;
+  color: black;
+  margin-top: 20px;
+`
+
+export const BoxCartProductsPhoto = styled.div`
+  width: 36px;
+  height: auto;
+`
+
+export const CartProductsBtnClose = styled.div`
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  color: white;
+  background-color: black;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: -412px;
+  top: -87px;
+  cursor: pointer;
+  
+`
+export const CartProductsTitles = styled.div`
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+  text-align: left;
+  color: #2C2C2C;
+;
+`
+export const CartProductsBtnQnt = styled.p`
+  font-size: 5px;
+  font-weight: 400;
+  line-height: 6.1px;
+  text-align: left;
+
+`
+
+export const CartProductsPrice = styled.p`
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: left;
+
+
+`
+
+export const CartProductsBtnMore = styled.div`
+  width: 70px;
+  height: auto;
+  padding: 2px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 10px 30px 10px;
+  border: solid 1px #BFBFBF;
+  margin-top: 1px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+`
+
+export const BoxCartValue = styled.div`
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 0px 25px;
+  justify-content: space-between;
+  color: white;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: left;
+  
+`
+
+export const BoxCartFinish = styled.div`
+  width: 486px;
+  position: absolute;
+  height: 80px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  left: 0px;
+  margin-top: 41px;
+  cursor: pointer;
 `
