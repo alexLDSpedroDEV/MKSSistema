@@ -3,7 +3,7 @@
 import React from 'react'
 import { 
   Container, Navbar, BoxTitle, BoxCart, TitleUpperCase, Title,IconCart, NumberCart,
-  ConatinerMain, BoxItens
+  ConatinerMain, BoxMain, Footer
 
  } from '@/styles/StyledComponent';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -34,11 +34,16 @@ const Home = () => {
             </NumberCart>
           </BoxCart>
         </Navbar>
+
         <ConatinerMain>
-          <BoxItens>
+          <BoxMain>
             <Itens/>
-          </BoxItens>
+          </BoxMain>
         </ConatinerMain>
+
+        <Footer>
+          MKS sistemas © Todos os direitos reservados
+        </Footer>
       </Container >
     </QueryClientProvider>
   )

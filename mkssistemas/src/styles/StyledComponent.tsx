@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
-  background-color: blue;
-  color: white;
-  font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: navy;
-  }
-`;
-
 export const Container = styled.div`
   width: 100vw;
   height: auto;
@@ -91,26 +78,134 @@ export const NumberCart = styled.h3`
   
 `
 
+
+
+
+
+
 export const ConatinerMain = styled.section`
   width: 100vw;
   height: auto;
-  min-height: calc(100vh - 135px);
+  
+  min-height: calc(100vh - 180px);
   display: grid;
   justify-content: center;
   align-items: center;
 `
-export const BoxItens = styled.div`
+export const BoxMain = styled.div`
   width: 938px;
   height: 601px;
-  background-color: red;
   display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 10px;
+`
+
+export const ConatinerItens = styled.section`
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 20px;
+`
+export const BoxItens = styled.div`
+  width: 218px;
+  height: auto;
+  min-height: 285px;
+  box-shadow: 0px 2px 8px 0px #00000022;
+  border-radius: 8px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+`
+export const ItensPhoto = styled.div`
+  margin-top: 15px;
+  width: 111px;
+  height: 138px;
+`
+export const ItensBoxTitle = styled.div`
+  width: 90%;
+  height: auto;
+  min-height: 38px;
+  display: grid;
+  grid-template-columns: auto auto;
+  color: #2C2C2C;
+  align-items: center;
+  gap: 10px;
+`
+export const ItensBrand = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: left;
+`
+export const ItensName = styled.div`
+  
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: left;
+`
+
+export const BoxItensPrice = styled.div`
+  width: auto;
+  min-width: 64px;
+  height: 26px;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+`
+export const ItensDescpition = styled.div`
+
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 12px;
+  text-align: left;
+  color:  #2C2C2C;
+  padding: 20px 10px;
+`
+export const BoxItensBtn = styled.div`
+  width: 218px;
+  height: 31.91px;
+  gap: 0px;
+  border-radius: 0px 0px 8px 8px;
+  border-color: white;
+  background-color: #0F52BA;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-around;
+  align-items: center;
+`
+
+export const ItensBtnText = styled.h3`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: left;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 `
 
+export const Footer = styled.div`
+  width: 100vw;
+  height: 38px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EEEEEE;
+  text-align: center;
+  color: black;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.63px;
+  text-align: left;
 
-export default function StyledComponent() {
-  return <Button>Click me</Button>;
-}
-
+`
