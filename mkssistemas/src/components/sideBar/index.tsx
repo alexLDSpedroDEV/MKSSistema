@@ -5,6 +5,7 @@ import {
     CartProductsBtnClose, CartProductsTitles, CartProductsBtnQnt, CartProductsBtnMore,
     CartProductsPrice,ContainerCartProducts,BoxCartValue, BoxCartFinish, 
 } from '@/styles/StyledComponent';
+
 import Swal from 'sweetalert2';
 import Image from 'next/image';
 import { CarrinhoProdutos } from '@/components/carrinho/index';

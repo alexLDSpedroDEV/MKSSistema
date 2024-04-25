@@ -39,19 +39,7 @@ const Itens = () =>  {
 
     const { data, error, isLoading, isError } = useQuery<Produtos[], Error>('dadosProdutos', getItems);
 
-    if (isLoading) {
-        return (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ rotate: 360, opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ repeat: Infinity, duration: 1 }}
-            style={{ width: '50px', height: '50px', backgroundColor: 'red' }}
-          >
-            Carregando...
-          </motion.div>
-        );
-      }
+    if (isLoading) return <div>Carregando ...</div>
     
     if (isError) return <div>Erro: {error.message}</div>;
   
@@ -71,7 +59,7 @@ const Itens = () =>  {
         {data && data.map((product) => (
           <BoxItens key={product.id}>
             <ItensPhoto>
-                <Image src={product.photo} width={111} height={138} alt={product.name}></Image>
+                <Image src={product.photo} width={111} height={138} priority  alt={product.name}></Image>
             </ItensPhoto>
             
             <ItensBoxTitle>

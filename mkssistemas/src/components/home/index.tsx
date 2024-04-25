@@ -3,20 +3,23 @@
 import React, { useState, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Itens from '../itens';
-import Image from 'next/image';
 import SideBar from '@/components/sideBar/index';
+
 import { motion } from 'framer-motion';
 import {
   Container, Navbar, BoxTitle, BoxCart, TitleUpperCase, Title, IconCart, NumberCart,
   ConatinerMain, BoxMain, Footer, ContainerCart,
 } from '@/styles/StyledComponent';
-import Vector from '../../../public/Vector.png';
+
+import { CarrinhoProdutos } from '../carrinho';
+import { IoCart } from "react-icons/io5";
 
 const queryClient = new QueryClient();
 
 const Home = () => {
-  const [open, setOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [open, setOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [cartIndex, setCartIndex] = useState<number>(0);
 
   useEffect(() => {
 
@@ -24,8 +27,21 @@ const Home = () => {
       setIsLoading(false);
     }, 4000);
 
+
+
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentProductsCount = CarrinhoProdutos.getAllProducts().length;
+      setCartIndex(currentProductsCount);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  
 
   if (isLoading) {
     return (
@@ -44,7 +60,7 @@ const Home = () => {
         transition={{ duration: 1 }}
       >
         <motion.div
-          className="triangle"  
+          className="triangle"
           initial={{ rotate: 0 }}
           animate={{ rotate: 360 }}
           transition={{
@@ -54,52 +70,53 @@ const Home = () => {
           }}
           style={{
             width: '100px',
-            height: '100px', 
+            height: '100px',
             position: 'relative',
-            top: '-50px', 
+            top: '-50px',
             backgroundColor: "#0F52BA"
           }}
         />
-        <motion.div style={{color: "white", fontSize: "1.5em"}}
-        >Carregando.... </motion.div>
+        <motion.div style={{ color: "white", fontSize: "1.5em" }}
+        ><div>Carregando....</div> </motion.div>
       </motion.div>
     );
   }
+ 
 
-return (
-  <QueryClientProvider client={queryClient}>
-    <Container data-testid="home">
-      <Navbar>
-        <BoxTitle>
-          <TitleUpperCase>MKS</TitleUpperCase>
-          <Title>Sistemas</Title>
-        </BoxTitle>
-        <BoxCart onClick={() => setOpen(true)}>
-          <IconCart>
-            <Image src={Vector} alt='icon de carrinho' width={24} height={24} />
-          </IconCart>
-          <NumberCart>0</NumberCart>
-        </BoxCart>
-      </Navbar>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Container data-testid="home" >
+        <Navbar>
+          <BoxTitle>
+            <TitleUpperCase>MKS</TitleUpperCase>
+            <Title>Sistemas</Title>
+          </BoxTitle>
+          <BoxCart onClick={() => setOpen(true)}>
+            <IconCart>
+              <IoCart />
+            </IconCart>
+            <NumberCart>{cartIndex}</NumberCart>
+          </BoxCart>
+        </Navbar>
 
-      {open && (
-        <ContainerCart>
-          <SideBar setOpen={setOpen} />
-        </ContainerCart>
-      )}
+        {open && (
+          <ContainerCart>
+            <SideBar setOpen={setOpen} />
+          </ContainerCart>
+        )}
 
-      <ConatinerMain>
-        <BoxMain>
-          <Itens />
-        </BoxMain>
-      </ConatinerMain>
+        <ConatinerMain>
+          <BoxMain>
+            <Itens />
+          </BoxMain>
+        </ConatinerMain>
 
-      <Footer>
-        MKS sistemas © Todos os direitos reservados
-      </Footer>
-    </Container>
-  </QueryClientProvider>
-);
+        <Footer>
+          MKS sistemas © Todos os direitos reservados
+        </Footer>
+      </Container>
+    </QueryClientProvider>
+  );
 }
 
 export default Home;

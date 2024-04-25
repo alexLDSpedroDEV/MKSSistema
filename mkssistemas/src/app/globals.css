@@ -22,5 +22,17 @@ a {
   border-left: 50px solid transparent; 
   border-right: 50px solid transparent; 
   border-top: 100px solid black; 
-  
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: #0F52BA;
+  heigth: 20px;
 }

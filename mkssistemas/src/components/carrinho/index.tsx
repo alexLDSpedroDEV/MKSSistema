@@ -11,7 +11,14 @@ export class Products {
     private products: MyProducts[] = []; 
 
     public addNewProduct(product: MyProducts): void {
-        this.products.push(product);
+
+        const productExists = this.products.some(existingProduct => existingProduct.id === product.id);
+        if (!productExists) {
+            this.products.push(product);
+        } else {
+            console.log("Produto já existe no carrinho.");
+        }
+        
     }
 
     public getAllProducts(): MyProducts[] {
