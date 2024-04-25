@@ -1,46 +1,34 @@
-export interface MeuProdcts {
+export interface MyProducts {
     id: number;
     name: string;
     brand: string;
     description: string;
     price: number;
-    photo: string
+    photo: string;
 }
 
+export class Products {
+    private products: MyProducts[] = []; 
 
-export class Prodocts {
-    private prodocts: MeuProdcts[] = [] ; 
-    private anotherState: any;
-
-    
-    public addNewProduct(prodocts: MeuProdcts): void {
-        this.prodocts.push(prodocts);
+    public addNewProduct(product: MyProducts): void {
+        this.products.push(product);
     }
 
-    public getAllProduct(): MeuProdcts[] {
-        return this.prodocts;
+    public getAllProducts(): MyProducts[] {
+        return this.products;
     }
 
-    private init() {
-        this.prodocts = [];
-        this.anotherState = null; 
-    }
-    
-    public ClearAllProducts(): void {
-        this.init();
+    public clearAllProducts(): void {
+        this.products = [];
     }
 
     public deleteOneProduct(productId: number): void {
-        const index = this.prodocts.findIndex(product => product.id === productId);
-        console.log("entrou")
+        const index = this.products.findIndex(product => product.id === productId);
         if (index !== -1) {
-            this.prodocts.splice(index, 1);
+            this.products.splice(index, 1);
         }
     }
-    
-    
 }
 
-export const CarrinhoProdutos = new Prodocts();
-
-export const dados: MeuProdcts[] = CarrinhoProdutos.getAllProduct();
+export const CarrinhoProdutos = new Products();
+export const dados: MyProducts[] = CarrinhoProdutos.getAllProducts();

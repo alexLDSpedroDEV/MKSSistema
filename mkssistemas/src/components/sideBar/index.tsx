@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { dados } from '../carrinho'
 import { IoMdClose } from "react-icons/io";
 import {
     BoxCartTitle, CartBtnClose, CartTitle, BoxCartProducts, BoxCartProductsPhoto,
     CartProductsBtnClose, CartProductsTitles, CartProductsBtnQnt, CartProductsBtnMore,
-    CartProductsPrice,ContainerCartProducts,BoxCartValue, BoxCartFinish
-
+    CartProductsPrice,ContainerCartProducts,BoxCartValue, BoxCartFinish, 
 } from '@/styles/StyledComponent';
 import Swal from 'sweetalert2';
 import Image from 'next/image';
@@ -15,20 +13,20 @@ interface SideBarProps {
     setOpen: (open: boolean) => void;  
 }
 
-const index: React.FC<SideBarProps> = ({ setOpen }) => {
-
-    const [quantidades, setQuantidades] = useState<number[]>(Array(dados.length).fill(1));
-    const [produtos, setProdutos] = useState(CarrinhoProdutos.getAllProduct());
+const Index: React.FC<SideBarProps> = ({ setOpen }) => {
+    const [produtos, setProdutos] = useState(CarrinhoProdutos.getAllProducts());
+    const [quantidades, setQuantidades] = useState<number[]>(Array(produtos.length).fill(1));
 
     useEffect(() => {
-        setProdutos(CarrinhoProdutos.getAllProduct());
-    }, []);
+        setProdutos(CarrinhoProdutos.getAllProducts());
+        setQuantidades(Array(produtos.length).fill(1));  
+    }, [produtos.length]);
 
     const incrementarQuantidade = (index: number) => {
         const newQuantidades = [...quantidades];
         newQuantidades[index] += 1;
         setQuantidades(newQuantidades);
-    }
+    };
 
     const decrementarQuantidade = (index: number) => {
         const newQuantidades = [...quantidades];
@@ -36,16 +34,17 @@ const index: React.FC<SideBarProps> = ({ setOpen }) => {
             newQuantidades[index] -= 1;
             setQuantidades(newQuantidades);
         }
-    }
+    };
 
     const calcularTotal = () => {
-        return dados.reduce((total, produto, idx) => total + produto.price * quantidades[idx], 0);
-    }
-    
+        return produtos.reduce((total, produto, idx) => total + produto.price * quantidades[idx], 0);
+    };
+
     const finalizarCompra = () => {
-        CarrinhoProdutos.ClearAllProducts();
+        CarrinhoProdutos.clearAllProducts();
         setProdutos([]);
         setQuantidades([]);
+        setOpen(false);  
         Swal.fire({
             title: 'Compra finalizada com sucesso',
             text: 'Obrigado por comprar, volte sempre!',
@@ -56,31 +55,29 @@ const index: React.FC<SideBarProps> = ({ setOpen }) => {
 
     const deleteItem = (IDproduct: number) => {
         CarrinhoProdutos.deleteOneProduct(IDproduct);
-        setProdutos(CarrinhoProdutos.getAllProduct());
-        setQuantidades(produtos.map(() => 1)); // Redefine as quantidades
+        const updatedProducts = CarrinhoProdutos.getAllProducts();
+        setProdutos(updatedProducts);
+        setQuantidades(updatedProducts.map(() => 1)); 
     };
 
     return (
         <div>
-
             <BoxCartTitle>
-                <CartTitle>Carrinho de comprar</CartTitle>
+                <CartTitle>Carrinho de compras</CartTitle>
                 <CartBtnClose onClick={() => setOpen(false)}>
                     <IoMdClose />
                 </CartBtnClose>
-
             </BoxCartTitle>
             <ContainerCartProducts>
-                {dados.map((products: any, index: number) => (
-                    <BoxCartProducts>
+                {produtos.map((product, index) => (
+                    <BoxCartProducts key={product.id}>
                         <BoxCartProductsPhoto>
-                            <Image src={products.photo} alt={products.name} width={56} height={57} />
+                            <Image src={product.photo} alt={product.name} width={56} height={57} />
                         </BoxCartProductsPhoto>
                         <CartProductsTitles>
-                            <p>{products.brand}</p>
-                            <p>{products.name}</p>
+                            <p>{product.brand}</p>
+                            <p>{product.name}</p>
                         </CartProductsTitles>
-
                         <div>
                             <CartProductsBtnQnt>Qtd:</CartProductsBtnQnt>
                             <CartProductsBtnMore>
@@ -89,27 +86,22 @@ const index: React.FC<SideBarProps> = ({ setOpen }) => {
                                 <div style={{ cursor: 'pointer' }} onClick={() => incrementarQuantidade(index)}>+</div>
                             </CartProductsBtnMore>
                         </div>
-
-                        <CartProductsPrice>R${Math.floor(products.price)}</CartProductsPrice>
-
-                        <CartProductsBtnClose onClick={() => deleteItem(products.id)}>
+                        <CartProductsPrice>R${Math.floor(product.price)}</CartProductsPrice>
+                        <CartProductsBtnClose onClick={() => deleteItem(product.id)}>
                             <IoMdClose />
                         </CartProductsBtnClose>
                     </BoxCartProducts>
                 ))}
             </ContainerCartProducts>
-
             <BoxCartValue>
                 <h2>Total</h2>
                 <p>R${calcularTotal()}</p>
             </BoxCartValue>
-
-            <BoxCartFinish onClick={() => finalizarCompra() }>
+            <BoxCartFinish onClick={finalizarCompra}>
                 Finalizar Compra
             </BoxCartFinish>
         </div>
+    );
+};
 
-    )
-}
-
-export default index
+export default Index;

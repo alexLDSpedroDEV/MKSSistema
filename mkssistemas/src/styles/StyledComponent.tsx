@@ -6,7 +6,6 @@ export const Container = styled.div`
   min-height: 100vh;
   background-color: white;
 `
-
 export const Navbar = styled.div`
   width: 100vw;
   height: 101px;
@@ -25,15 +24,12 @@ export const BoxTitle = styled.div`
    
 `
 export const TitleUpperCase = styled.div`
-  font-family: Montserrat;
   font-weight: 600;
   font-size: 40px;
   line-height: 19px;
   
 `
-
 export const Title = styled.div`
-  font-family: Montserrat;
   font-weight: 300;
   font-size: 20px;
   line-height: 19px;
@@ -69,11 +65,9 @@ export const NumberCart = styled.h3`
   width: 13px;
   height: 22px;
   top: 40px;
-
-  font-family: Montserrat;
+  line-height: 21.94px;
   font-size: 18px;
   font-weight: 800;
-  line-height: 21.94px;
   text-align: left;
   
 `
@@ -344,6 +338,8 @@ export const BoxCartValue = styled.div`
   font-weight: 700;
   line-height: 15px;
   text-align: left;
+  position: absolute;
+  bottom: 105px;
   
 `
 
@@ -358,6 +354,9 @@ export const BoxCartFinish = styled.div`
   justify-content: center;
   align-items: center;
   left: 0px;
+  bottom: 0px;
   margin-top: 41px;
   cursor: pointer;
 `
+
+
