@@ -1,36 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![01](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/91d31b7a-ea01-44c6-821d-0dc228b0d8b8)
+![02](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/805dfa96-6603-4794-8d8f-7f60886e78c7)
+![03](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/dcd340a8-173d-4402-8945-838c70bfcd23)
+![04](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/e4ec1de4-a72a-444f-a5c4-410add7dc96a)
+![05](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/9c11ad30-fee1-4147-bc66-4b9dfa7e7cb9)
+![06](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/3611e24f-2aa9-4cb4-b34f-75618ba8a888)
+![07](https://github.com/alexLDSpedroDEV/MKSSistema/assets/115034319/ddace2fb-9a11-4fb5-a452-75334760cfcc)
