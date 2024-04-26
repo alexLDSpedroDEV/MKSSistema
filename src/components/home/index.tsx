@@ -2,46 +2,27 @@
 
 import React, { useState, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Itens from '../itens';
-import SideBar from '@/components/sideBar/index';
-
 import { motion } from 'framer-motion';
 import {
-  Container, Navbar, BoxTitle, BoxCart, TitleUpperCase, Title, IconCart, NumberCart,
-  ConatinerMain, BoxMain, Footer, ContainerCart,
+  Container, Footer,
 } from '@/styles/StyledComponent';
+import NavBar from '../navBar/index';
+import Main from '../main';
 
-import { CarrinhoProdutos } from '../carrinho';
-import { IoCart } from "react-icons/io5";
 
 const queryClient = new QueryClient();
 
 const Home = () => {
-  const [open, setOpen] = useState<boolean>(false);
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [cartIndex, setCartIndex] = useState<number>(0);
 
   useEffect(() => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 4000);
-
-
-
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const currentProductsCount = CarrinhoProdutos.getAllProducts().length;
-      setCartIndex(currentProductsCount);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  
 
   if (isLoading) {
     return (
@@ -61,6 +42,7 @@ const Home = () => {
       >
         <motion.div
           className="triangle"
+          data-testid="loadingTriangle"
           initial={{ rotate: 0 }}
           animate={{ rotate: 360 }}
           transition={{
@@ -81,36 +63,15 @@ const Home = () => {
       </motion.div>
     );
   }
- 
+
 
   return (
     <QueryClientProvider client={queryClient}>
       <Container data-testid="home" >
-        <Navbar>
-          <BoxTitle>
-            <TitleUpperCase>MKS</TitleUpperCase>
-            <Title>Sistemas</Title>
-          </BoxTitle>
-          <BoxCart onClick={() => setOpen(true)}>
-            <IconCart>
-              <IoCart />
-            </IconCart>
-            <NumberCart>{cartIndex}</NumberCart>
-          </BoxCart>
-        </Navbar>
+        <NavBar />
 
-        {open && (
-          <ContainerCart>
-            <SideBar setOpen={setOpen} />
-          </ContainerCart>
-        )}
-
-        <ConatinerMain>
-          <BoxMain>
-            <Itens />
-          </BoxMain>
-        </ConatinerMain>
-
+        <Main />
+        
         <Footer>
           MKS sistemas © Todos os direitos reservados
         </Footer>

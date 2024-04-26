@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { BsCart3 } from "react-icons/bs";
 import Swal from 'sweetalert2';
 import { CarrinhoProdutos } from '@/components/carrinho/index';
-import { motion } from 'framer-motion';
 
 
 import { 

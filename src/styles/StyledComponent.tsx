@@ -50,7 +50,7 @@ export const Title = styled.div`
   padding-top: 5px;
 
 `
-export const BoxCart = styled.div`
+export const BoxCart = styled.button`
   width: 90px;
   height: 45px;
   border-radius: 8px 8px 8px 8px;

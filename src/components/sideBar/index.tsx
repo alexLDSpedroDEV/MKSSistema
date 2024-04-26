@@ -63,12 +63,14 @@ const Index: React.FC<SideBarProps> = ({ setOpen }) => {
 
     return (
         <div>
+
             <BoxCartTitle>
                 <CartTitle>Carrinho de compras</CartTitle>
                 <CartBtnClose onClick={() => setOpen(false)}>
                     <IoMdClose />
                 </CartBtnClose>
             </BoxCartTitle>
+
             <ContainerCartProducts>
                 {produtos.map((product, index) => (
                     <BoxCartProducts key={product.id}>
@@ -94,6 +96,7 @@ const Index: React.FC<SideBarProps> = ({ setOpen }) => {
                     </BoxCartProducts>
                 ))}
             </ContainerCartProducts>
+
             <BoxCartValue>
                 <h2>Total</h2>
                 <p>R${calcularTotal()}</p>
@@ -101,6 +104,7 @@ const Index: React.FC<SideBarProps> = ({ setOpen }) => {
             <BoxCartFinish onClick={finalizarCompra}>
                 Finalizar Compra
             </BoxCartFinish>
+            
         </div>
     );
 };
